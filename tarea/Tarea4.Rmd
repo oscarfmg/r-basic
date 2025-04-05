@@ -1,0 +1,122 @@
+---
+title: "Tarea4"
+author: "Oscar Mendoza"
+date: "2025-04-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Realiza los siguientes productos de matrices siguiente en R, donde:
+
+$$A = \begin{pmatrix}
+ 1 & 2 & 3 & 4 \\
+ 4 & 3 & 2 & 1 \\
+ 0 & 1 & 0 & 2 \\
+ 3 & 0 & 4 & 0
+\end{pmatrix} \hspace{1cm} B = \begin{pmatrix}
+  4 & 3 & 2 & 1  \\
+  0 & 3 & 0 & 4  \\
+  1 & 2 & 3 & 4  \\
+  0 & 1 & 0 & 2
+\end{pmatrix}$$
+
+```{r}
+A = matrix(c(1,2,3,4,4,3,2,1,0,1,0,2,3,0,4,0), ncol=4, byrow = T)
+B = matrix(c(4,3,2,1,0,3,0,4,1,2,3,4,0,1,0,2), ncol=4, byrow = T)
+```
+
+$A \cdot B$
+```{r}
+A %*% B
+```
+
+$B \cdot A$
+```{r}
+B %*% A
+```
+
+$(A \cdot B)^t$
+```{r}
+t(A %*% B)
+```
+
+$B^t \cdot A$
+```{r}
+t(B) %*% A
+```
+
+$(A \cdot B)^{-1}$
+```{r}
+solve(A %*% B)
+```
+
+$A^{-1} \cdot B^{-1}$
+```{r}
+solve(A) %*% solve(B)
+```
+
+$A^{-1} \cdot B^{t}$
+```{r}
+solve(A) %*% t(B)
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+2. Considera en un vector los números de tu DNI (puedes inventártelos) y llámalo dno. Por ejemplo, si tu DNI es 54201567K, tu vector será dni = (5, 4, 2, 0, 1, 5, 6, 7).
+
+Define el vector en R.
+```{r}
+dni = c(2,0,9,1,9,3,0,7,3)
+```
+Calcula con R el vector dni al cuadrado,
+```{r}
+dni^2
+```
+la raíz cuadrada del vector dni
+```{r}
+sqrt(dni)
+```
+y, por último, la suma de todas las cifras del vector dni.
+```{r}
+sum(dni)
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+3. Considera el vector de las letras de tu nombre y apellido. Llámalo name. Por ejemplo, name = (M, A, R, I, A, S, A, N, T, O, S)
+
+Define dicho vector en R.
+```{r}
+name = c('O','S','C','A','R','M','E','N','D','O','Z','A')
+```
+
+Calcula el subvector que solo contenga tu nombre.
+```{r}
+nombre = name[1:5]
+```
+
+Calcula también el subvector que contenga solo tu apellido.
+```{r}
+apellido = name[6:length(name)]
+```
+
+Ordénalo alfabéticamente.
+```{r}
+sort(name)
+```
+
+Crea una matriz con este vector.
+```{r}
+matrix(name,ncol=4)
+```
